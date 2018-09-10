@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82FBCDB519A01E204A5DC4C4 /* Pods_dorsaViGoProMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACD8E9598357A496F6F2DFF /* Pods_dorsaViGoProMonitor.framework */; };
+		9980CA332145E456006E1BFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CA322145E456006E1BFB /* AppDelegate.swift */; };
+		9980CA352145E456006E1BFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CA342145E456006E1BFB /* ViewController.swift */; };
+		9980CA382145E456006E1BFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9980CA362145E456006E1BFB /* Main.storyboard */; };
+		9980CA3A2145E456006E1BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9980CA392145E456006E1BFB /* Assets.xcassets */; };
+		9980CA3D2145E456006E1BFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9980CA3B2145E456006E1BFB /* LaunchScreen.storyboard */; };
+		9980CA472145E794006E1BFB /* GoProCommandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CA462145E794006E1BFB /* GoProCommandController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7EC09FF03BC7278AC00C4D1A /* Pods-dorsaViGoProMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dorsaViGoProMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor.release.xcconfig"; sourceTree = "<group>"; };
+		8ACD8E9598357A496F6F2DFF /* Pods_dorsaViGoProMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dorsaViGoProMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9980CA2F2145E456006E1BFB /* dorsaViGoProMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dorsaViGoProMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9980CA322145E456006E1BFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9980CA342145E456006E1BFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9980CA372145E456006E1BFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9980CA392145E456006E1BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9980CA3C2145E456006E1BFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9980CA3E2145E456006E1BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9980CA462145E794006E1BFB /* GoProCommandController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoProCommandController.swift; sourceTree = "<group>"; };
+		DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dorsaViGoProMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9980CA2C2145E456006E1BFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82FBCDB519A01E204A5DC4C4 /* Pods_dorsaViGoProMonitor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9980CA262145E456006E1BFB = {
+			isa = PBXGroup;
+			children = (
+				9980CA312145E456006E1BFB /* dorsaViGoProMonitor */,
+				9980CA302145E456006E1BFB /* Products */,
+				E0C1CEB10A9C392305346378 /* Pods */,
+				A592BA1871DC2C62F190EEC6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9980CA302145E456006E1BFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9980CA2F2145E456006E1BFB /* dorsaViGoProMonitor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9980CA312145E456006E1BFB /* dorsaViGoProMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				9980CA462145E794006E1BFB /* GoProCommandController.swift */,
+				9980CA322145E456006E1BFB /* AppDelegate.swift */,
+				9980CA342145E456006E1BFB /* ViewController.swift */,
+				9980CA362145E456006E1BFB /* Main.storyboard */,
+				9980CA392145E456006E1BFB /* Assets.xcassets */,
+				9980CA3B2145E456006E1BFB /* LaunchScreen.storyboard */,
+				9980CA3E2145E456006E1BFB /* Info.plist */,
+			);
+			path = dorsaViGoProMonitor;
+			sourceTree = "<group>";
+		};
+		A592BA1871DC2C62F190EEC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ACD8E9598357A496F6F2DFF /* Pods_dorsaViGoProMonitor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0C1CEB10A9C392305346378 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */,
+				7EC09FF03BC7278AC00C4D1A /* Pods-dorsaViGoProMonitor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9980CA2E2145E456006E1BFB /* dorsaViGoProMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9980CA412145E456006E1BFB /* Build configuration list for PBXNativeTarget "dorsaViGoProMonitor" */;
+			buildPhases = (
+				86DB007C5B6BEC2B90032DD7 /* [CP] Check Pods Manifest.lock */,
+				9980CA2B2145E456006E1BFB /* Sources */,
+				9980CA2C2145E456006E1BFB /* Frameworks */,
+				9980CA2D2145E456006E1BFB /* Resources */,
+				B189481585B92F4441E9D0FA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dorsaViGoProMonitor;
+			productName = dorsaViGoProMonitor;
+			productReference = 9980CA2F2145E456006E1BFB /* dorsaViGoProMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9980CA272145E456006E1BFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "dorsaVi Hardware";
+				TargetAttributes = {
+					9980CA2E2145E456006E1BFB = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9980CA2A2145E456006E1BFB /* Build configuration list for PBXProject "dorsaViGoProMonitor" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9980CA262145E456006E1BFB;
+			productRefGroup = 9980CA302145E456006E1BFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9980CA2E2145E456006E1BFB /* dorsaViGoProMonitor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9980CA2D2145E456006E1BFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9980CA3D2145E456006E1BFB /* LaunchScreen.storyboard in Resources */,
+				9980CA3A2145E456006E1BFB /* Assets.xcassets in Resources */,
+				9980CA382145E456006E1BFB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86DB007C5B6BEC2B90032DD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dorsaViGoProMonitor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B189481585B92F4441E9D0FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9980CA2B2145E456006E1BFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9980CA352145E456006E1BFB /* ViewController.swift in Sources */,
+				9980CA332145E456006E1BFB /* AppDelegate.swift in Sources */,
+				9980CA472145E794006E1BFB /* GoProCommandController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9980CA362145E456006E1BFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9980CA372145E456006E1BFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9980CA3B2145E456006E1BFB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9980CA3C2145E456006E1BFB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9980CA3F2145E456006E1BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9980CA402145E456006E1BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9980CA422145E456006E1BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7P95972UZ6;
+				INFOPLIST_FILE = dorsaViGoProMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorsaVi.dorsaViGoProMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9980CA432145E456006E1BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EC09FF03BC7278AC00C4D1A /* Pods-dorsaViGoProMonitor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7P95972UZ6;
+				INFOPLIST_FILE = dorsaViGoProMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorsaVi.dorsaViGoProMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9980CA2A2145E456006E1BFB /* Build configuration list for PBXProject "dorsaViGoProMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9980CA3F2145E456006E1BFB /* Debug */,
+				9980CA402145E456006E1BFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9980CA412145E456006E1BFB /* Build configuration list for PBXNativeTarget "dorsaViGoProMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9980CA422145E456006E1BFB /* Debug */,
+				9980CA432145E456006E1BFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9980CA272145E456006E1BFB /* Project object */;
+}
