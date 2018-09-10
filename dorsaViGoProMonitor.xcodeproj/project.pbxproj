@@ -14,6 +14,7 @@
 		9980CA3A2145E456006E1BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9980CA392145E456006E1BFB /* Assets.xcassets */; };
 		9980CA3D2145E456006E1BFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9980CA3B2145E456006E1BFB /* LaunchScreen.storyboard */; };
 		9980CA472145E794006E1BFB /* GoProCommandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CA462145E794006E1BFB /* GoProCommandController.swift */; };
+		F1CBC4E32146019E00CE0117 /* Externals in Resources */ = {isa = PBXBuildFile; fileRef = F1CBC4E22146019E00CE0117 /* Externals */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9980CA3E2145E456006E1BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9980CA462145E794006E1BFB /* GoProCommandController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoProCommandController.swift; sourceTree = "<group>"; };
 		DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dorsaViGoProMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor.debug.xcconfig"; sourceTree = "<group>"; };
+		F1CBC4E22146019E00CE0117 /* Externals */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Externals; path = ../../Externals; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		9980CA312145E456006E1BFB /* dorsaViGoProMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				F1CBC4E22146019E00CE0117 /* Externals */,
 				9980CA462145E794006E1BFB /* GoProCommandController.swift */,
 				9980CA322145E456006E1BFB /* AppDelegate.swift */,
 				9980CA342145E456006E1BFB /* ViewController.swift */,
@@ -154,6 +157,7 @@
 				9980CA3D2145E456006E1BFB /* LaunchScreen.storyboard in Resources */,
 				9980CA3A2145E456006E1BFB /* Assets.xcassets in Resources */,
 				9980CA382145E456006E1BFB /* Main.storyboard in Resources */,
+				F1CBC4E32146019E00CE0117 /* Externals in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,15 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-dorsaViGoProMonitor-checkManifestLockResult.txt",
 			);
@@ -187,17 +187,15 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -39,20 +40,26 @@ class ViewController: UIViewController {
         playerViewController.showsPlaybackControls = false
         playerViewController.player!.play()
         
+    }
+    
+    @IBAction func goproStream(_ sender: Any) {
         //-- GoPro command controller usage
         let goproCommandController = GoProCommandController.controller
-        let goproMediaListURL = goproCommandController.GoProGetMediaList()
+        let goproStreamListURL = goproCommandController.GoProStartStreaming()
         
         //-- Alamofire: make http request
         //-- reference: https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#http-methods
         // without response handling (default: .GET method)
-        Alamofire.request(goproMediaListURL)
+        Alamofire.request(goproStreamListURL)
         // with response handling (json Serializer)
-        Alamofire.request(goproMediaListURL).responseJSON { response in
-            if let json = response.result.value {
-                print("JSON: \(json)")
+        Alamofire.request(goproStreamListURL).responseJSON { response in
+            let json: JSON = JSON(response.result.value!)
+            if json["status"] == "0"{
+                print("Connect Success!")
             }
+            
         }
     }
+    
 }
 
