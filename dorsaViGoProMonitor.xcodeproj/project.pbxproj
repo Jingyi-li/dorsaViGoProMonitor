@@ -21,7 +21,6 @@
 		F1CBC4F22146067300CE0117 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F12146067300CE0117 /* VideoToolbox.framework */; };
 		F1CBC4F42146067D00CE0117 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F32146067D00CE0117 /* CoreMedia.framework */; };
 		F1CBC4F82146506A00CE0117 /* PlaybackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBC4F72146506A00CE0117 /* PlaybackController.swift */; };
-		F1CBC4FA214744E900CE0117 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */; };
 		F1CBC4FF21474B2800CE0117 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */; };
 		F1CBC50121474B3100CE0117 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50021474B3100CE0117 /* OpenGLES.framework */; };
 		F1CBC50321474B3E00CE0117 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50221474B3E00CE0117 /* MobileCoreServices.framework */; };
@@ -32,6 +31,7 @@
 		F1CBC50D21474BC000CE0117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50C21474BC000CE0117 /* UIKit.framework */; };
 		F1CBC50F21474BCA00CE0117 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */; };
 		F1CBC5112147530800CE0117 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC5102147530800CE0117 /* libc++.tbd */; };
+		F1CBC51321477E6800CE0117 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC51221477E6800CE0117 /* IJKMediaFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,6 @@
 		F1CBC4F12146067300CE0117 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		F1CBC4F32146067D00CE0117 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		F1CBC4F72146506A00CE0117 /* PlaybackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackController.swift; sourceTree = "<group>"; };
-		F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		F1CBC4FB2147458B00CE0117 /* dorsaViGoProMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dorsaViGoProMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F1CBC50021474B3100CE0117 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -68,6 +67,7 @@
 		F1CBC50C21474BC000CE0117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F1CBC5102147530800CE0117 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F1CBC51221477E6800CE0117 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 				F1CBC50D21474BC000CE0117 /* UIKit.framework in Frameworks */,
 				F1CBC50B21474BB700CE0117 /* CoreGraphics.framework in Frameworks */,
 				F1CBC50921474BAB00CE0117 /* AVFoundation.framework in Frameworks */,
+				F1CBC51321477E6800CE0117 /* IJKMediaFramework.framework in Frameworks */,
 				F1CBC50721474B9400CE0117 /* CoreVideo.framework in Frameworks */,
 				F1CBC50521474B4E00CE0117 /* MediaPlayer.framework in Frameworks */,
 				F1CBC50321474B3E00CE0117 /* MobileCoreServices.framework in Frameworks */,
@@ -91,7 +92,6 @@
 				F1CBC4EE2146064A00CE0117 /* libbz2.tbd in Frameworks */,
 				F1CBC4EC2146063F00CE0117 /* libz.tbd in Frameworks */,
 				82FBCDB519A01E204A5DC4C4 /* Pods_dorsaViGoProMonitor.framework in Frameworks */,
-				F1CBC4FA214744E900CE0117 /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +135,7 @@
 		A592BA1871DC2C62F190EEC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1CBC51221477E6800CE0117 /* IJKMediaFramework.framework */,
 				F1CBC5102147530800CE0117 /* libc++.tbd */,
 				F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */,
 				F1CBC50C21474BC000CE0117 /* UIKit.framework */,
@@ -145,7 +146,6 @@
 				F1CBC50221474B3E00CE0117 /* MobileCoreServices.framework */,
 				F1CBC50021474B3100CE0117 /* OpenGLES.framework */,
 				F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */,
-				F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */,
 				F1CBC4F32146067D00CE0117 /* CoreMedia.framework */,
 				F1CBC4F12146067300CE0117 /* VideoToolbox.framework */,
 				F1CBC4EF2146065400CE0117 /* libiconv.tbd */,

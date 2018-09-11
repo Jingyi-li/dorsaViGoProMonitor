@@ -144,6 +144,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // initialization
         let player = IJKFFMoviePlayerController(contentURL: url, with: options)!
         player.setPlayerOptionValue("nobuffer", forKey: "fflags")
+//        player.setPlayerOptionValue("<#T##value: String!##String!#>", forKey: <#T##String!#>)
+//        player.setFormatOptionValue("nobuffer", forKey: "fflags")
+//        player.setPlayerOptionIntValue(0, forKey: "packet-buffering")
+//        player.setFormatOptionIntValue(0, forKey: "max_delay")
+//        player.setFormatOptionIntValue(0, forKey: "reorder_queue_size")
+//        player.setFormatOptionValue("direct", forKey: "avioflags")
+//        player.setFormatOptionValue("udp", forKey: "rtsp_transport")
+//        player.setCodecOptionIntValue(0, forKey: "skip_frame")
+//        player.setCodecOptionIntValue(0, forKey: "skip_loop_filter")
+//        player.setPlayerOptionIntValue(1, forKey: "framedrop")
+//        player.setPlayerOptionValue("ext", forKey: "sync")
         // fit scale
         //        let autoresize = UIViewAutoresizing.flexibleWidth.rawValue |
         //            UIViewAutoresizing.flexibleHeight.rawValue
