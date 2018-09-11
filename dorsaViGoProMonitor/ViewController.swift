@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var directory: String?
     var selectedName: Int?
     var udpTimer: Timer!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mediaList.dataSource = self
         mediaList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view, typically from a nib.
+        uiTextFieldStreamRate.text = "1000000"
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +51,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     @IBAction func liveStreamButton(_ sender: Any) {
-        self.udpTimer.invalidate()
+        self.udpTimer?.invalidate()
+        let streamRate = Int(uiTextFieldStreamRate.text ?? "70000")
+        self.setStreamingRate(streamRate: streamRate!)
         
+        //-- GoPro command controller usage
+        let goproCommandController = GoProCommandController.controller
+        let goproLiveStreamUrl = goproCommandController.GoProStartStreaming()
+        //-- Alamofire: make http request
+        //-- reference: https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#http-methods
+        // without response handling (default: .GET method)
+        // Alamofire.request(goproLiveStreamUrl)
+        // with response handling (json Serializer)
+        Alamofire.request(goproLiveStreamUrl).responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)")
+                DispatchQueue.main.async {
+                    self.playLiveSteamUsingIJKFFMoviePlayer()
+                }
+                self.udpTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.maintainUDPStream), userInfo: nil, repeats: true)
+                
+            }
+        }
         
     }
     
@@ -66,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // with response handling (json Serializer)
         Alamofire.request(goproStreamListURL).responseJSON { response in
             let json: JSON = JSON(response.result.value!)
-            print(json)
+//            print(json)
             self.getMp4InGopro(json: json)
             
             DispatchQueue.main.async {
@@ -75,6 +97,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
        
         
+    }
+    
+    
+    @objc func maintainUDPStream()
+    {
+        let goproCommandController = GoProCommandController.controller
+        let goproLiveStreamUrl = goproCommandController.GoProStartStreaming()
+        Alamofire.request(goproLiveStreamUrl)
     }
 //    GoProGetMediaList() get filelist from gopro input is JSON
     func getMp4InGopro(json: JSON) {
@@ -100,6 +130,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         playerViewController.view.frame = uiViewPreview.bounds
         playerViewController.showsPlaybackControls = false
         playerViewController.player!.play()
+    }
+    
+    func playLiveSteamUsingIJKFFMoviePlayer()
+    {
+        var videoURLInput: String!
+//        videoURLInput = uiTextFieldSource.text
+        videoURLInput = "udp://10.5.5.100:8554"
+        // initialize default setting
+        let options = IJKFFOptions.byDefault()
+        // URL
+        let url = URL(string: videoURLInput)
+        // initialization
+        let player = IJKFFMoviePlayerController(contentURL: url, with: options)!
+        player.setPlayerOptionValue("nobuffer", forKey: "fflags")
+        // fit scale
+        //        let autoresize = UIViewAutoresizing.flexibleWidth.rawValue |
+        //            UIViewAutoresizing.flexibleHeight.rawValue
+        //        player.view.autoresizingMask = UIViewAutoresizing(rawValue: autoresize)
+        
+        player.view.frame = uiViewPreview.bounds
+        player.scalingMode = IJKMPMovieScalingMode.aspectFit
+        player.shouldAutoplay = true
+        uiViewPreview.autoresizesSubviews = true
+        uiViewPreview.layer.addSublayer(player.view.layer)
+        player.prepareToPlay()
+    }
+    
+    func setStreamingRate(streamRate: Int){
+        let goproCommandCOntroller = GoProCommandController.controller
+        let goproLiveStreamUrl = goproCommandCOntroller.GoProStreamBitRate(bitRate: streamRate)
+        Alamofire.request(goproLiveStreamUrl)
     }
     func playGoproVideo(fileNameToPlay name: String ){
         
