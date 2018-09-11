@@ -21,6 +21,16 @@
 		F1CBC4F22146067300CE0117 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F12146067300CE0117 /* VideoToolbox.framework */; };
 		F1CBC4F42146067D00CE0117 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F32146067D00CE0117 /* CoreMedia.framework */; };
 		F1CBC4F82146506A00CE0117 /* PlaybackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CBC4F72146506A00CE0117 /* PlaybackController.swift */; };
+		F1CBC4FA214744E900CE0117 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */; };
+		F1CBC4FF21474B2800CE0117 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */; };
+		F1CBC50121474B3100CE0117 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50021474B3100CE0117 /* OpenGLES.framework */; };
+		F1CBC50321474B3E00CE0117 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50221474B3E00CE0117 /* MobileCoreServices.framework */; };
+		F1CBC50521474B4E00CE0117 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50421474B4D00CE0117 /* MediaPlayer.framework */; };
+		F1CBC50721474B9400CE0117 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50621474B9400CE0117 /* CoreVideo.framework */; };
+		F1CBC50921474BAB00CE0117 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50821474BAA00CE0117 /* AVFoundation.framework */; };
+		F1CBC50B21474BB700CE0117 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50A21474BB700CE0117 /* CoreGraphics.framework */; };
+		F1CBC50D21474BC000CE0117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50C21474BC000CE0117 /* UIKit.framework */; };
+		F1CBC50F21474BCA00CE0117 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +55,17 @@
 		F1CBC4F12146067300CE0117 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		F1CBC4F32146067D00CE0117 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		F1CBC4F72146506A00CE0117 /* PlaybackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackController.swift; sourceTree = "<group>"; };
+		F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		F1CBC4FB2147458B00CE0117 /* dorsaViGoProMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dorsaViGoProMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F1CBC50021474B3100CE0117 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F1CBC50221474B3E00CE0117 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F1CBC50421474B4D00CE0117 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		F1CBC50621474B9400CE0117 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F1CBC50821474BAA00CE0117 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F1CBC50A21474BB700CE0117 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F1CBC50C21474BC000CE0117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +73,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CBC50F21474BCA00CE0117 /* AudioToolbox.framework in Frameworks */,
+				F1CBC50D21474BC000CE0117 /* UIKit.framework in Frameworks */,
+				F1CBC50B21474BB700CE0117 /* CoreGraphics.framework in Frameworks */,
+				F1CBC50921474BAB00CE0117 /* AVFoundation.framework in Frameworks */,
+				F1CBC50721474B9400CE0117 /* CoreVideo.framework in Frameworks */,
+				F1CBC50521474B4E00CE0117 /* MediaPlayer.framework in Frameworks */,
+				F1CBC50321474B3E00CE0117 /* MobileCoreServices.framework in Frameworks */,
+				F1CBC50121474B3100CE0117 /* OpenGLES.framework in Frameworks */,
+				F1CBC4FF21474B2800CE0117 /* QuartzCore.framework in Frameworks */,
 				F1CBC4F42146067D00CE0117 /* CoreMedia.framework in Frameworks */,
 				F1CBC4F22146067300CE0117 /* VideoToolbox.framework in Frameworks */,
 				F1CBC4F02146065400CE0117 /* libiconv.tbd in Frameworks */,
 				F1CBC4EE2146064A00CE0117 /* libbz2.tbd in Frameworks */,
 				F1CBC4EC2146063F00CE0117 /* libz.tbd in Frameworks */,
 				82FBCDB519A01E204A5DC4C4 /* Pods_dorsaViGoProMonitor.framework in Frameworks */,
+				F1CBC4FA214744E900CE0117 /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +132,16 @@
 		A592BA1871DC2C62F190EEC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1CBC50E21474BCA00CE0117 /* AudioToolbox.framework */,
+				F1CBC50C21474BC000CE0117 /* UIKit.framework */,
+				F1CBC50A21474BB700CE0117 /* CoreGraphics.framework */,
+				F1CBC50821474BAA00CE0117 /* AVFoundation.framework */,
+				F1CBC50621474B9400CE0117 /* CoreVideo.framework */,
+				F1CBC50421474B4D00CE0117 /* MediaPlayer.framework */,
+				F1CBC50221474B3E00CE0117 /* MobileCoreServices.framework */,
+				F1CBC50021474B3100CE0117 /* OpenGLES.framework */,
+				F1CBC4FE21474B2800CE0117 /* QuartzCore.framework */,
+				F1CBC4F9214744E900CE0117 /* IJKMediaFramework.framework */,
 				F1CBC4F32146067D00CE0117 /* CoreMedia.framework */,
 				F1CBC4F12146067300CE0117 /* VideoToolbox.framework */,
 				F1CBC4EF2146065400CE0117 /* libiconv.tbd */,
@@ -110,6 +151,7 @@
 				F1CBC4E72146055F00CE0117 /* libbz2.1.0.tbd */,
 				F1CBC4E42146050A00CE0117 /* libz.1.tbd */,
 				8ACD8E9598357A496F6F2DFF /* Pods_dorsaViGoProMonitor.framework */,
+				F1CBC4FB2147458B00CE0117 /* dorsaViGoProMonitor-Bridging-Header.h */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +199,7 @@
 				TargetAttributes = {
 					9980CA2E2145E456006E1BFB = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -386,8 +429,13 @@
 			baseConfigurationReference = DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P95972UZ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = dorsaViGoProMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -395,6 +443,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dorsaVi.dorsaViGoProMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "dorsaViGoProMonitor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -405,8 +455,13 @@
 			baseConfigurationReference = 7EC09FF03BC7278AC00C4D1A /* Pods-dorsaViGoProMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P95972UZ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = dorsaViGoProMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -414,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dorsaVi.dorsaViGoProMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "dorsaViGoProMonitor-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

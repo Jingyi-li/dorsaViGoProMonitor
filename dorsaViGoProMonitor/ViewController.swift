@@ -11,6 +11,7 @@ import AVKit
 import AVFoundation
 import Alamofire
 import SwiftyJSON
+import IJKMediaFramework
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -20,10 +21,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var uiButtonStartStreaming: UIButton!
     @IBOutlet weak var uiViewPreview: UIView!
     @IBOutlet weak var mediaList: UITableView!
+    @IBOutlet weak var uiTextFieldStreamRate: UITextField!
     
     var nameArray = [String]()
     var directory: String?
     var selectedName: Int?
+    var udpTimer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         videoURLInput = uiTextFieldSource.text
 //        videoURLInput = "http://10.5.5.9:8080/Videos/DCIM/100GOPRO/GOPR1306.MP4"
         playVideo(url: videoURLInput)
+        
+    }
+    @IBAction func liveStreamButton(_ sender: Any) {
+        self.udpTimer.invalidate()
+        
         
     }
     
