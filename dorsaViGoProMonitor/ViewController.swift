@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         directory = json["media"][0]["d"].stringValue
         var nFile = 0
         self.nameArray.removeAll()
-        for file in json["media"][0]["fs"] {
+        for _ in json["media"][0]["fs"] {
             let name = json["media"][0]["fs"][nFile]["n"].stringValue
             if name.hasSuffix(".MP4") {
                 self.nameArray.append(name)
