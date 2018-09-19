@@ -117,12 +117,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-Uk-WW5">
+                                <rect key="frame" x="286" y="426" width="42" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="record"/>
+                                <connections>
+                                    <action selector="startRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uke-w8-Igl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mediaList" destination="Nzb-nb-W40" id="SJe-fw-f8q"/>
+                        <outlet property="recordButton" destination="xbQ-Uk-WW5" id="jDA-8n-h0Q"/>
                         <outlet property="uiButtonStartStreaming" destination="Dub-tF-gaC" id="B0Q-ya-bsN"/>
                         <outlet property="uiTextFieldSource" destination="wHc-rb-IoM" id="xmy-d9-Zo7"/>
                         <outlet property="uiTextFieldStreamRate" destination="eK3-bR-pxd" id="jWo-Bf-ywH"/>
@@ -134,4 +143,7 @@
             <point key="canvasLocation" x="136.5234375" y="132.03125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="record" width="64" height="64"/>
+    </resources>
 </document>

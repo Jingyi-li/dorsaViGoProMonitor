@@ -22,11 +22,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var uiViewPreview: UIView!
     @IBOutlet weak var mediaList: UITableView!
     @IBOutlet weak var uiTextFieldStreamRate: UITextField!
+    @IBOutlet weak var recordButton: UIButton!
     
     var nameArray = [String]()
     var directory: String?
     var selectedName: Int?
     var udpTimer: Timer!
+    var flagRecord: Bool?
+    var playerIJK : IJKFFMoviePlayerController?
+    var playerViewController = AVPlayerViewController()
+    var flag = ["livePlay": false, "goproPlay": false]
+    var player = AVPlayer()
+    
     
 
     override func viewDidLoad() {
@@ -36,6 +43,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mediaList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view, typically from a nib.
         uiTextFieldStreamRate.text = "1000000"
+        flagRecord = false
+        setRecordButtonView(flagRecord!)
+        playerIJK = initLiveStream()
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,11 +94,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //-- Alamofire: make http request
         //-- reference: https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#http-methods
         // without response handling (default: .GET method)
-//        Alamofire.request(goproStreamListURL)
+
         // with response handling (json Serializer)
         Alamofire.request(goproStreamListURL).responseJSON { response in
             let json: JSON = JSON(response.result.value!)
-//            print(json)
+
             self.getMp4InGopro(json: json)
             
             DispatchQueue.main.async {
@@ -98,6 +108,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        
         
     }
+    //TODO: - RecordVideo
+    @IBAction func startRecord(_ sender: Any) {
+
+        let goproCommandController = GoProCommandController.controller
+        
+        Alamofire.request(goproCommandController.GoProPrimaryMode(mode: "video"))
+        
+        if flagRecord == false {
+            Alamofire.request(goproCommandController.GoProShutter(trigger: true))
+            print("Start Record!")
+            flagRecord = true
+        } else {
+            Alamofire.request(goproCommandController.GoProShutter(trigger: false))
+            print("Stop Record!")
+            flagRecord = false
+        }
+        setRecordButtonView(flagRecord!)
+    }
+    func setRecordButtonView(_ flagRecord: Bool) {
+        if flag["livePlay"]!{
+            let flagRecord = flagRecord
+            if flagRecord == false {
+                recordButton.setImage(UIImage(named: "record"), for: .normal)
+            } else {
+                recordButton.setImage(UIImage(named: "stop"), for: .normal)
+            }
+        }
+    }
+    
+    //MARK: - Functions
+    /***************************************************************/
     
     
     @objc func maintainUDPStream()
@@ -121,21 +162,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(self.nameArray)
         
     }
+    func shutdownVideo() {
+        if flag["livePlay"]!{
+            playerIJK!.shutdown()
+            flag["livePlay"] = false
+            print("close live play")
+        }
+        if flag["goproPlay"]!{
+            playerViewController.player?.replaceCurrentItem(with: (nil))
+            flag["goproPlay"] = false
+            print("close video play")
+        }
+    }
     func playVideo(url:String){
+        shutdownVideo()
+
         let videoURL = URL(string: url)
         let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
+        
         playerViewController.player = player
+        
         uiViewPreview.addSubview(playerViewController.view)
         playerViewController.view.frame = uiViewPreview.bounds
         playerViewController.showsPlaybackControls = false
         playerViewController.player!.play()
+        flag["goproPlay"] = true
     }
     
-    func playLiveSteamUsingIJKFFMoviePlayer()
-    {
+    func initLiveStream() -> IJKFFMoviePlayerController{
         var videoURLInput: String!
-//        videoURLInput = uiTextFieldSource.text
         videoURLInput = "udp://10.5.5.100:8554"
         // initialize default setting
         let options = IJKFFOptions.byDefault()
@@ -143,24 +198,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let url = URL(string: videoURLInput)
         // initialization
         let player = IJKFFMoviePlayerController(contentURL: url, with: options)!
-        
-        player.setOptionValue("200000", forKey: "analyzeduration", of: IJKFFOptionCategory(1))
-        player.setOptionValue("nobuffer", forKey: "fflags", of: IJKFFOptionCategory(1))
-        player.setOptionValue("2048", forKey: "probsize", of: IJKFFOptionCategory(1))
+        return player
+    }
+    
+    func playLiveSteamUsingIJKFFMoviePlayer() {
+        shutdownVideo()
+        playerIJK = initLiveStream()
+        playerIJK!.setOptionValue("200000", forKey: "analyzeduration", of: IJKFFOptionCategory(1))
+        playerIJK!.setOptionValue("nobuffer", forKey: "fflags", of: IJKFFOptionCategory(1))
+        playerIJK!.setOptionValue("2048", forKey: "probsize", of: IJKFFOptionCategory(1))
 
         // fit scale
         //        let autoresize = UIViewAutoresizing.flexibleWidth.rawValue |
         //            UIViewAutoresizing.flexibleHeight.rawValue
         //        player.view.autoresizingMask = UIViewAutoresizing(rawValue: autoresize)
         
-        player.view.frame = uiViewPreview.bounds
-        player.scalingMode = IJKMPMovieScalingMode.aspectFit
-        player.shouldAutoplay = true
+        playerIJK!.view.frame = uiViewPreview.bounds
+        playerIJK!.scalingMode = IJKMPMovieScalingMode.aspectFit
+        playerIJK!.shouldAutoplay = true
         uiViewPreview.autoresizesSubviews = true
-        uiViewPreview.layer.addSublayer(player.view.layer)
-        player.prepareToPlay()
+        uiViewPreview.layer.addSublayer(playerIJK!.view.layer)
+        playerIJK!.prepareToPlay()
+        flag["livePlay"] = true
+        
     }
     
+
+
     func setStreamingRate(streamRate: Int){
         let goproCommandCOntroller = GoProCommandController.controller
         let goproLiveStreamUrl = goproCommandCOntroller.GoProStreamBitRate(bitRate: streamRate)
@@ -193,6 +257,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         uiTextFieldSource.text = goproDefaultUrl
         
     }
-        
+
+}
+
+extension UIView {
+    public func removeAllSubviews() {
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
 }
 
