@@ -40,7 +40,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         mediaList.delegate = self
         mediaList.dataSource = self
-        mediaList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        mediaList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        mediaList.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
         // Do any additional setup after loading the view, typically from a nib.
         uiTextFieldStreamRate.text = "1000000"
         flagRecord = false
@@ -247,8 +248,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let name = nameArray[indexPath.row]
-        let cell: UITableViewCell = self.mediaList.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
-        cell.textLabel?.text = name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
+        cell.setVideoTableViewCell(file: name)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
