@@ -248,7 +248,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let name = nameArray[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
+        let cell = mediaList.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
         cell.setVideoTableViewCell(file: name)
         return cell
     }
