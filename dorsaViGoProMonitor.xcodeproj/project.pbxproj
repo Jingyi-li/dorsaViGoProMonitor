@@ -16,6 +16,8 @@
 		9980CA472145E794006E1BFB /* GoProCommandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980CA462145E794006E1BFB /* GoProCommandController.swift */; };
 		F1025635215317E3007E3DE7 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1025633215317E3007E3DE7 /* VideoTableViewCell.swift */; };
 		F1025636215317E3007E3DE7 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1025634215317E3007E3DE7 /* VideoTableViewCell.xib */; };
+		F102563921549547007E3DE7 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102563721549547007E3DE7 /* PhotoViewCell.swift */; };
+		F102563A21549547007E3DE7 /* PhotoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F102563821549547007E3DE7 /* PhotoViewCell.xib */; };
 		F1CBC4E32146019E00CE0117 /* Externals in Resources */ = {isa = PBXBuildFile; fileRef = F1CBC4E22146019E00CE0117 /* Externals */; };
 		F1CBC4EC2146063F00CE0117 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4EB2146063F00CE0117 /* libz.tbd */; };
 		F1CBC4EE2146064A00CE0117 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CBC4ED2146064A00CE0117 /* libbz2.tbd */; };
@@ -50,6 +52,8 @@
 		DFB4225E25D8FF9D5774FFB5 /* Pods-dorsaViGoProMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dorsaViGoProMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dorsaViGoProMonitor/Pods-dorsaViGoProMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		F1025633215317E3007E3DE7 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		F1025634215317E3007E3DE7 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		F102563721549547007E3DE7 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		F102563821549547007E3DE7 /* PhotoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewCell.xib; sourceTree = "<group>"; };
 		F1CBC4E22146019E00CE0117 /* Externals */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Externals; path = ../../Externals; sourceTree = "<group>"; };
 		F1CBC4E42146050A00CE0117 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libz.1.tbd; sourceTree = DEVELOPER_DIR; };
 		F1CBC4E72146055F00CE0117 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libbz2.1.0.tbd; sourceTree = DEVELOPER_DIR; };
@@ -179,6 +183,8 @@
 			children = (
 				F1025633215317E3007E3DE7 /* VideoTableViewCell.swift */,
 				F1025634215317E3007E3DE7 /* VideoTableViewCell.xib */,
+				F102563721549547007E3DE7 /* PhotoViewCell.swift */,
+				F102563821549547007E3DE7 /* PhotoViewCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				9980CA3D2145E456006E1BFB /* LaunchScreen.storyboard in Resources */,
 				9980CA3A2145E456006E1BFB /* Assets.xcassets in Resources */,
 				9980CA382145E456006E1BFB /* Main.storyboard in Resources */,
+				F102563A21549547007E3DE7 /* PhotoViewCell.xib in Resources */,
 				F1025636215317E3007E3DE7 /* VideoTableViewCell.xib in Resources */,
 				F1CBC4E32146019E00CE0117 /* Externals in Resources */,
 			);
@@ -305,6 +312,7 @@
 				F1CBC4F82146506A00CE0117 /* PlaybackController.swift in Sources */,
 				9980CA472145E794006E1BFB /* GoProCommandController.swift in Sources */,
 				F1025635215317E3007E3DE7 /* VideoTableViewCell.swift in Sources */,
+				F102563921549547007E3DE7 /* PhotoViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

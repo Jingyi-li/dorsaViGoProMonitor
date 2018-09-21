@@ -13,7 +13,9 @@ import Alamofire
 import SwiftyJSON
 import IJKMediaFramework
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    
 
     
     
@@ -24,9 +26,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var uiTextFieldStreamRate: UITextField!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var localList: UITableView!
+    @IBOutlet weak var photoCollect: UICollectionView!
+    @IBOutlet weak var process: UIProgressView!
+    
+    
+//    @IBOutlet weak var screenShotView: UIImageView!
     
     var nameArray = [String]()
     var localNameArray = [String]()
+    var photoArray = [String]()
+    var photoImage = Dictionary<String,UIImage>()
     var directory: String?
     var selectedName: Int?
     var udpTimer: Timer!
@@ -47,11 +56,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         localList.delegate = self
         localList.dataSource = self
         localList.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
+        photoCollect.delegate = self
+        photoCollect.dataSource = self
+        photoCollect.register(UINib(nibName: "PhotoViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoViewCell")
         // Do any additional setup after loading the view, typically from a nib.
         uiTextFieldStreamRate.text = "1000000"
         flagRecord = false
         setRecordButtonView(flagRecord!)
         playerIJK = initLiveStream()
+        process.progress = 0.0
+        reload()
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,8 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.mediaList.reloadData()
             }
         }
-        getMp4InLocal()
-        localList.reloadData()
+        
        
         
     }
@@ -144,12 +157,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    //TODO: - Take a ScreenShot
+   
+    @IBAction func screenShot(_ sender: Any) {
+        let screen = uiViewPreview
+        let image = screen?.takeScreenshot()
+        let nameTime = getTodayString() + ".png"
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destinationPath = documentsPath.appendingPathComponent(nameTime)
+        do {
+            try UIImageJPEGRepresentation(image!,1.0)?.write(to: destinationPath, options: .atomic)
+        } catch {
+            
+        }
+        reload()
+        
+    }
+    
+    
     //TODO: - Download media to Local
     
     @IBAction func downloadToLocal(_ sender: Any) {
         Alamofire.request(uiTextFieldSource.text!).downloadProgress(closure : { (progress) in
             print(progress.fractionCompleted)
-//            self.progressView.progress = Float(progress.fractionCompleted)
+            self.process.progress = Float(progress.fractionCompleted)
         }).responseData{ (response) in
             print(response)
             print(response.result.value!)
@@ -164,9 +195,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Something went wrong!")
                 }
                 print(videoURL)
+                self.reload()
             }
         }
     }
+    
+    //TODO: - ReloadLocal
+    
+    @IBAction func reloadLocal(_ sender: Any) {
+       reload()
+    }
+    func reload(){
+        getMp4InLocal()
+        localList.reloadData()
+        photoCollect.reloadData()
+    }
+    //TODO: - Delet local files
+    
+    @IBAction func deletLocalFile(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Alert", message: "DELET ALL FILES?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "DeletAll", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
+            
+            let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            do {
+                let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
+                                                                           includingPropertiesForKeys: nil,
+                                                                           options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+                for fileURL in fileURLs {
+                    
+                    try FileManager.default.removeItem(at: fileURL)
+                    
+                    //                if fileURL.pathExtension == "mp3" {
+                    //                    try FileManager.default.removeItem(at: fileURL)
+                    //                }
+                }
+            } catch  { print(error) }
+            self.reload()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     //MARK: - Functions
     /***************************************************************/
@@ -198,19 +269,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 //        print(documentURL)
         localNameArray.removeAll()
+        photoArray.removeAll()
+        photoImage.removeAll()
+        
         
         do {
 //            let items = try fm.contentsOfDirectory(atPath: documentURL)
             let items = try fm.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
             for item in items {
-                let name = item.lastPathComponent
-                localNameArray.append(name)
+                
+                if item.pathExtension == "MP4"{
+                    let name = item.lastPathComponent
+                    localNameArray.append(name)
+                } else {
+                
+                    let name = item.lastPathComponent
+                    photoArray.append(name)
+                    photoImage[name] = UIImage(contentsOfFile: item.path)
+                    
+                }
+                
             }
         } catch {
             
         }
-        print(localNameArray)
+        print(photoArray)
     }
+    
     func shutdownVideo() {
         if flag["livePlay"]!{
             playerIJK!.shutdown()
@@ -285,6 +370,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     }
     
+    func getTodayString() -> String{
+        
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        
+        let year = components.year
+        let month = components.month
+        let day = components.day
+        let hour = components.hour
+        let minute = components.minute
+        let second = components.second
+        
+        let today_string = String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!)  + ":" + String(minute!) + ":" +  String(second!)
+        
+        return today_string
+        
+    }
+    
     //MARK: - Delegate
     /***************************************************************/
     
@@ -337,6 +441,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
+    
+    // CollectionView Delegate
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell: PhotoViewCell?
+        if collectionView == self.photoCollect {
+            let name = photoArray[indexPath.row]
+            let image = photoImage[name]
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
+            cell!.setPhotoCell(image!, name: name)
+        }
+        
+        return cell!
+    }
+    
+    
 
 }
 
@@ -345,6 +468,25 @@ extension UIView {
         for subview in self.subviews {
             subview.removeFromSuperview()
         }
+    }
+    
+    func takeScreenshot() -> UIImage {
+        
+        // Begin context
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        
+        // Draw view in that context
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        
+        // And finally, get image
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if (image != nil)
+        {
+            return image!
+        }
+        return UIImage()
     }
     
 }
