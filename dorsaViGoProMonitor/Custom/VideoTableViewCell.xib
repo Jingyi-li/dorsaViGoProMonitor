@@ -34,6 +34,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="fileImage" destination="VNl-HG-f6B" id="WoY-CT-NUx"/>
                 <outlet property="videoNameLable" destination="mI2-sc-ICX" id="hRH-uo-Xg4"/>
             </connections>
         </tableViewCell>

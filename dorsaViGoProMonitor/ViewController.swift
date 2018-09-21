@@ -23,8 +23,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var mediaList: UITableView!
     @IBOutlet weak var uiTextFieldStreamRate: UITextField!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var localList: UITableView!
     
     var nameArray = [String]()
+    var localNameArray = [String]()
     var directory: String?
     var selectedName: Int?
     var udpTimer: Timer!
@@ -42,6 +44,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mediaList.dataSource = self
 //        mediaList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         mediaList.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
+        localList.delegate = self
+        localList.dataSource = self
+        localList.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
         // Do any additional setup after loading the view, typically from a nib.
         uiTextFieldStreamRate.text = "1000000"
         flagRecord = false
@@ -106,6 +111,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.mediaList.reloadData()
             }
         }
+        getMp4InLocal()
+        localList.reloadData()
        
         
     }
@@ -137,6 +144,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    //TODO: - Download media to Local
+    
+    @IBAction func downloadToLocal(_ sender: Any) {
+        Alamofire.request(uiTextFieldSource.text!).downloadProgress(closure : { (progress) in
+            print(progress.fractionCompleted)
+//            self.progressView.progress = Float(progress.fractionCompleted)
+        }).responseData{ (response) in
+            print(response)
+            print(response.result.value!)
+            print(response.result.description)
+            if let data = response.result.value {
+                
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let videoURL = documentsURL.appendingPathComponent(self.nameArray[self.selectedName!])
+                do {
+                    try data.write(to: videoURL)
+                } catch {
+                    print("Something went wrong!")
+                }
+                print(videoURL)
+            }
+        }
+    }
     
     //MARK: - Functions
     /***************************************************************/
@@ -160,8 +190,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             nFile = nFile + 1
         }
-        print(self.nameArray)
+//        print(self.nameArray)
         
+    }
+    func getMp4InLocal(){
+        let fm = FileManager.default
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        print(documentURL)
+        localNameArray.removeAll()
+        
+        do {
+//            let items = try fm.contentsOfDirectory(atPath: documentURL)
+            let items = try fm.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+            for item in items {
+                let name = item.lastPathComponent
+                localNameArray.append(name)
+            }
+        } catch {
+            
+        }
+        print(localNameArray)
     }
     func shutdownVideo() {
         if flag["livePlay"]!{
@@ -243,19 +291,50 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //    filesListTableView UITableView Delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nameArray.count
+        
+        var count:Int?
+        
+        if tableView == self.mediaList{
+            count  = nameArray.count
+        }
+        if tableView == self.localList{
+            count = localNameArray.count
+        }
+        return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let name = nameArray[indexPath.row]
-        let cell = mediaList.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
-        cell.setVideoTableViewCell(file: name)
-        return cell
+        var cell: VideoTableViewCell?
+        
+        if tableView == self.mediaList {
+            let name = nameArray[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
+            cell!.setVideoTableViewCell(file: name, type: "gopro")
+        }
+        
+        if tableView == self.localList {
+            let name = localNameArray[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as! VideoTableViewCell
+            cell!.setVideoTableViewCell(file: name, type: "Local")
+        }
+
+        return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = nameArray[indexPath.row]
-        let goproDefaultUrl = "http://10.5.5.9:8080/Videos/DCIM/"+directory!+"/"+name
-        uiTextFieldSource.text = goproDefaultUrl
+        
+        if tableView == mediaList {
+            let name = nameArray[indexPath.row]
+            selectedName = indexPath.row
+            let goproDefaultUrl = "http://10.5.5.9:8080/Videos/DCIM/"+directory!+"/"+name
+            uiTextFieldSource.text = goproDefaultUrl
+        }
+        if tableView == localList {
+            let name = localNameArray[indexPath.row]
+            selectedName = indexPath.row
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.absoluteString
+            let goproDefaultUrl = path + name
+            uiTextFieldSource.text = goproDefaultUrl
+        }
         
     }
 
